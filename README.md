@@ -1,47 +1,75 @@
-# End-to-End-Corporate-DevOps-Pipeline-on-AWS
-Project Overview This project demonstrates a complete, production-grade DevOps CI/CD pipeline built from the ground up on AWS. It automates the entire software delivery lifecycle for a Java-based web application, from a developer's code commit to a highly available deployment in a Kubernetes cluster. 
-Core Features & Technical Showcase
-This project showcases expertise in a wide range of DevOps domains:
-Infrastructure as Code (IaC) & Cloud Engineering:
-Secure Network Foundation: Deployed a custom Amazon VPC with distinct public and private subnets spanning multiple Availability Zones for high availability and fault tolerance.
-Managed Kubernetes: Utilized Amazon EKS (Elastic Kubernetes Service) for a scalable and resilient container orchestration layer, with worker nodes securely placed in private subnets.
-Secure Connectivity: Implemented a NAT Gateway for secure outbound internet access for private resources and a Bastion Host for secure administrative access.
-CI/CD Automation with Jenkins:
-Declarative Pipeline-as-Code: The entire workflow is defined in a Jenkinsfile, promoting version control and reproducibility.
-Automated Build & Test: Integrated Maven to automatically compile the Java application and run unit tests.
-Artifact Management: Published versioned .jar artifacts to Sonatype Nexus Repository for reliable release management.
-DevSecOps - "Shifting Left" on Security:
-Static Code Analysis (SAST): Integrated SonarQube to automatically scan code for bugs, vulnerabilities, and code smells on every build.
-Container Image Scanning: Utilized Trivy to scan Docker images for known vulnerabilities before they are pushed to the registry, preventing insecure images from reaching production.
-Kubernetes Security Posture: Scanned the Kubernetes cluster configuration with Kube-audit to identify security misconfigurations.
-Containerization & Orchestration:
-Docker: Containerized the application for consistent and portable deployments.
-Amazon ECR: Used Amazon's Elastic Container Registry for secure, private storage of Docker images.
-Kubernetes Deployment: Deployed the application to the EKS cluster using declarative manifest files (deployment.yaml, service.yaml).
-Observability & Monitoring:
-Centralized Logging: Configured Amazon CloudWatch to collect VPC Flow Logs, EKS control plane logs, and application logs for unified monitoring and troubleshooting.
-Notifications: Integrated Amazon SNS (Simple Notification Service) for robust, decoupled pipeline status notifications (success/failure).
-(If you implement the final part): Deployed Prometheus and Grafana for real-time monitoring of application and system-level metrics.
-Technology Stack
-Domain	Tools Used
-Cloud Provider	Amazon Web Services (AWS)
-Containerization	Docker, Amazon EKS, Kubernetes, Amazon ECR
-CI/CD	Jenkins, GitHub, Maven
-DevSecOps	SonarQube, Trivy, Kube-audit
-Artifact Management	Sonatype Nexus Repository
-Networking	Amazon VPC, NAT Gateway, ALB
-Notifications	Amazon SNS
-Application	Java, Spring Boot
-How to Run This Project
-(Here, you can add brief instructions on how someone else could replicate your setup, which further demonstrates your deep understanding.)
-Provision the AWS infrastructure (VPC, Subnets, EKS, EC2 instances).
-Install and configure the tooling (Jenkins, SonarQube, Nexus) on their respective servers.
-Set up the CI/CD pipeline in Jenkins pointing to this GitHub repository.
-Trigger the pipeline with a git push to the main branch.
-Access the deployed application via the Application Load Balancer URL.
-Action Plan
-Create the public repository.
-Push the vprofile-project code to it as we discussed.
-Create a new file in the repository named README.md.
-Copy and paste the text above into your README.md file.
-Commit the new file.
+# End-to-End Corporate DevOps Pipeline on AWS
+
+## Overview
+This project demonstrates a production-style DevOps CI/CD pipeline built on AWS that automates the complete software delivery lifecycle for a Java-based application — from source code commit to containerized deployment on Kubernetes.
+
+It reflects an enterprise-inspired architecture and is designed as a practical learning project to showcase cloud engineering, automation, and security integration.
+
+---
+
+## Architecture Highlights
+
+### Cloud & Infrastructure
+- Multi-AZ Amazon VPC design with public and private subnets  
+- Secure NAT Gateway for private outbound traffic  
+- Bastion Host for administrative access  
+- Amazon EKS for container orchestration  
+- Amazon ECR for container image storage  
+
+### CI/CD Pipeline
+- Jenkins Pipeline as Code (Jenkinsfile)
+- Maven for builds and testing
+- Sonatype Nexus for artifact management
+- GitHub as source control
+
+### Security & DevSecOps
+- SonarQube for static code analysis
+- Trivy for container vulnerability scanning
+- Kube-audit for Kubernetes posture checks
+- IAM and access isolation applied throughout
+
+### Observability
+- AWS CloudWatch logging and monitoring
+- Pipeline status alerts via Amazon SNS
+- (Optional) Prometheus & Grafana integration
+
+---
+
+## Technology Stack
+
+| Area | Tools |
+|------|-------|
+| Cloud | AWS (EC2, VPC, EKS, ECR, IAM, SNS) |
+| CI/CD | Jenkins, GitHub, Maven |
+| DevSecOps | SonarQube, Trivy, Kube-audit |
+| Containers | Docker, Kubernetes |
+| Artifacts | Nexus Repository |
+| Monitoring | CloudWatch |
+| Application | Java / Spring Boot |
+
+---
+
+## How This Project Is Used
+
+1. AWS infrastructure is provisioned (VPC, subnets, nodes).
+2. Jenkins builds and tests code automatically.
+3. SonarQube scans the codebase.
+4. Artifacts are stored in Nexus.
+5. Docker images are scanned and pushed to ECR.
+6. Kubernetes deploys the application on EKS.
+7. Logs and notifications are handled via CloudWatch and SNS.
+
+---
+
+## Purpose of this Project
+This project was built as a hands-on learning initiative to:
+- Practice AWS architecture patterns  
+- Build CI/CD automation workflows  
+- Integrate security into deployment pipelines  
+- Simulate enterprise-style environments  
+
+---
+
+## Author
+Sylvester Awungjia  
+AWS Certified Solutions Architect | Cybersecurity
